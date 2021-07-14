@@ -1,0 +1,41 @@
+.board {
+    width: 700px;
+    height: 500px;
+    background-color:grey;
+    position: relative;
+}
+
+.paddle {
+    width: 20px;
+    height: 100px;
+    left: 0px;
+    position: absolute;
+    background-color: black;
+}
+
+.paddle2 {
+    width: 20px;
+    height: 100px;
+    right: 0px;
+    position: absolute;
+    background-color: black;
+}
+
+
+.ball {
+    background-color: green;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 500px;
+    top: 250px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #333;
+    height: 100vh;
+}

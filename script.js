@@ -1,54 +1,68 @@
-// Size of the game area (in px)
-const GAME_AREA_WIDTH = 700;
-const GAME_AREA_HEIGHT = 500;
-
-// Size of the paddles (in px)
-const PADDLE_HEIGHT = 100;
-const PADDLE_WIDTH = 20;
-
-// Size of the ball (in px)
-const BALL_SIZE = 20;
-
-// Get the computer paddle element
-const computerPaddle = document.querySelector('.computer-paddle');
-
-
-// Initial computer paddle y-position and y-velocity
-let computerPaddleYPosition = 0;
-let computerPaddleYVelocity = 1;
-
-
-const moveBall = document.querySelector('.ball');
-moveBall.style.borderRadius = '50%'
-let moveX = 1;
-let moveY = 1;
-let dy = 3;
-let dx = 3;
-
-// Update the pong world
-function update() {
-
-    // Update the computer paddle's position
-    computerPaddleYPosition = computerPaddleYPosition + computerPaddleYVelocity;
-
-    // If the computer paddle goes off the edge of the screen, bring it back
-    computerPaddleYPosition = computerPaddleYPosition % (GAME_AREA_HEIGHT - PADDLE_HEIGHT);
-
-    // Apply the y-position 
-    computerPaddle.style.top = `${computerPaddleYPosition}px`;
-    moveX += dx;
-    moveBall.style.left = `${moveX}px`;
-    if (moveX >= GAME_AREA_WIDTH){
-        dx = dx * -1;
-    } else if (moveX <= 0){
-        dx = dx * -1;
-    }
-
-
-
-// Call the update() function everytime the browser is ready to re-render
-function loop() {
-    update();
-    window.requestAnimationFrame(loop);
+const rectangle = document.querySelector('.paddle');
+let xPosition = 0;
+let xVelocity = 1;
+function doThisEverySoOften() {
+    if (xPosition > 400) {
+        xVelocity = -1;
+    } 
+    xPosition = xPosition + xVelocity;
+    console.log(xPosition);
+    rectangle.style.top = `${xPosition}px`;
 }
-window.requestAnimationFrame(loop);
+function goDown() {
+    if (xPosition <= 0) {
+        xVelocity = 1;
+    } 
+    xPosition = xPosition + xVelocity;
+    console.log(xPosition);
+    rectangle.style.top = `${xPosition}px`;
+}
+
+setInterval(doThisEverySoOften, 35);
+setInterval(goDown, 35);
+
+const rectangle2 = document.querySelector('.paddle2');
+let xPosition2 = 0;
+let xVelocity2 = 1;
+function doThisEverySoOften2() {
+    if (xPosition > 400) {
+        xVelocity = -1;
+    } 
+    xPosition = xPosition + xVelocity;
+    console.log(xPosition);
+    rectangle2.style.top = `${xPosition}px`;
+}
+function goDown() {
+    if (xPosition <= 0) {
+        xVelocity = 1;
+    } 
+    xPosition = xPosition + xVelocity;
+    console.log(xPosition);
+    rectangle2.style.top = `${xPosition}px`;
+}
+
+setInterval(doThisEverySoOften, 15);
+setInterval(goDown, 10);
+
+const ball = document.querySelector('.ball');
+let xPosition3 = 1;
+let xVelocity3 = 1;
+function doThisEverySoOften3() {
+    if (xPosition3 > 660) {
+        xVelocity3 = -1;
+    } 
+    xPosition3 = xPosition3 + xVelocity3;
+    console.log(xPosition3);
+    ball.style.left = `${xPosition3}px`;
+}
+function goDown3() {
+    if (xPosition3 <= 10) {
+        xVelocity3 = 1;
+    } 
+    xPosition3 = xPosition3 + xVelocity3;
+    console.log(xPosition3);
+    ball.style.left = `${xPosition3}px`;
+}
+
+setInterval(doThisEverySoOften3, 20);
+setInterval(goDown3, 8);

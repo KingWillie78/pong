@@ -32,6 +32,7 @@ function doThisEverySoOften2() {
     console.log(xPosition);
     rectangle2.style.top = `${xPosition}px`;
 }
+
 function goDown() {
     if (xPosition <= 0) {
         xVelocity = 1;
